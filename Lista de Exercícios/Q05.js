@@ -6,6 +6,6 @@ let subTotal = preco * quantidade;
 let desconto = (percentual / 100) * subTotal;
 let valorFinal = subTotal - desconto;
 
-alert(`Subtotal: R$${subTotal}`);
+alert(`Subtotal: R$${subTotal.toFixed(2)}`);
 alert(`Desconto: R$${desconto.toFixed(2)}`);
-alert(`Valor Final: R$${valorFinal}`);
+alert(`Valor Final: R$${valorFinal.toFixed(2)}`);
