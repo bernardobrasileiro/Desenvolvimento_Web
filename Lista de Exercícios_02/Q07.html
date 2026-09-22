@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q07</title>
+</head>
+
+<body>
+    <h1>Questão 7</h1>
+    <p>
+        Solicite um número de 1 a 3 e utilize a estrutura switch para
+        exibir o turno correspondente: Manhã, Tarde ou Noite.
+        Qualquer outro valor deve cair no default com a mensagem
+        Turno inválido. Lembre-se de que o prompt() retorna texto e
+        de que o case utiliza comparação estrita.
+    </p>
+    <script>
+        let numero = Number(prompt('Insira um número de 1 a 3: '));
+
+        switch (numero) {
+            case 1:
+                console.log(`Turno: Manhã`);
+                break;
+            case 2:
+                console.log(`Turno: Tarde`);
+                break;
+            case 3:
+                console.log(`Turno: Noite`);
+                break;
+            default:
+                console.log(`Turno inválido`);
+                break;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q04</title>
+</head>
+
+<body>
+    <h1>Questão 4</h1>
+    <p>
+        Declare a idade de uma pessoa e uma variável booleana
+        indicando se ela possui convite. Utilizando operadores
+        lógicos, determine se a entrada em um evento deve ser
+        permitida: é necessário ter 18 anos ou mais E possuir convite.
+        Informe também o motivo quando a entrada for negada.
+    </p>
+    <script>
+        let idade = 16;
+        let possuiConvite = true;
+
+        if (idade >= 18 && possuiConvite) {
+            console.log(`Entrada aceita`);
+        }
+        else {
+            console.log(`Entrada negada`);
+            if (idade < 18) {
+                console.log(`Motivo: menor de idade.`);
+            }
+            if (!possuiConvite) {
+                console.log(`Motivo: não possui convite.`);
+            }
+        }
+    </script>
+</body>
+
+</html>

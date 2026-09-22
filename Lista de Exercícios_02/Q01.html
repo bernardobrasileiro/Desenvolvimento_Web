@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q01</title>
+</head>
+
+<body>
+    <h1>Questão 1</h1>
+    <p>
+        Uma loja recebeu 47 itens e precisa embalá-los em caixas
+        com capacidade para 6 itens cada. Calcule e exiba quantas
+        caixas completas serão formadas e quantos itens sobrarão. O
+        depósito tem 4 andares, com 4 corredores cada e 4
+        prateleiras por corredor: utilize o operador de potência para
+        calcular o total de posições disponíveis.
+    </p>
+    <script>
+        let totalItens = 47;
+        let itensPorCaixa = 6;
+        let dimensao = 4;
+
+        let caixasCompletas = totalItens / itensPorCaixa;
+        let resultado = Math.floor(caixasCompletas);
+        let itensSobrando = totalItens % itensPorCaixa;
+        let posicaoDeposito = dimensao ** 3;
+
+        console.log(`Total de itens: ${totalItens}`);
+        console.log(`Caixas completas: ${resultado}`);
+        console.log(`Itens sobrando: ${itensSobrando}`);
+        console.log(`Posições no depósito: ${posicaoDeposito}`);
+    </script>
+</body>
+
+</html>

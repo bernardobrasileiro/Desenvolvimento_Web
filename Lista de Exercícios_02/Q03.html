@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q03</title>
+</head>
+
+<body>
+    <h1>Questão 3</h1>
+    <p>
+        Solicite o valor vendido por um representante no mês e a
+        meta estabelecida pela empresa. Utilizando operadores
+        relacionais, informe se a meta foi atingida, se foi superada e
+        se o valor bate exatamente com a meta. Exiba também a
+        diferença entre os dois valores. Utilize === e !== nas
+        comparações de igualdade e lembre-se de converter os
+        valores recebidos.
+    </p>
+    <script>
+        let valorVendido = Number(prompt('Insira o valor vendido: '));
+        let metaMes = Number(prompt('Insira a meta do mês: '));
+
+        console.log(`Atingiu a meta?`, valorVendido >= metaMes);
+        console.log(`Superou a meta?`, valorVendido > metaMes);
+        console.log(`Bateu exatamente?`, valorVendido === metaMes);
+        console.log(`Diferença: `, valorVendido - metaMes);
+    </script>
+</body>
+
+</html>

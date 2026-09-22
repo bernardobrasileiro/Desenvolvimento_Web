@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q09</title>
+</head>
+
+<body>
+    <h1>Questão 9</h1>
+    <p>
+        Utilize a estrutura do...while para solicitar uma senha
+        repetidamente, até que o usuário digite o valor correto. Ao
+        acertar, exiba uma mensagem de boas-vindas e informe
+        quantas tentativas foram necessárias. Justifique, em
+        comentário, por que o do...while é mais adequado que o while
+        neste caso.
+    </p>
+    <script>
+        let senha;
+        let k = 0;
+
+        do {
+            k++;
+            senha = prompt(`${k}a tentativa: `);
+        }
+        while (senha !== 'ifpb2026');
+
+        console.log(`Bem-vindo! Você acertou em ${k} tentativa(s).`);
+        /*
+            o do while se mostra mais eficiente que o while
+            pois o usuário precisa realizar pelo menos uma
+            tentativa para poder inserir a senha corretamente
+        */
+    </script>
+</body>
+
+</html>

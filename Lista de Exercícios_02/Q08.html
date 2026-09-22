@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q08</title>
+</head>
+
+<body>
+    <h1>Questão 8</h1>
+    <p>
+        Solicite um número ao usuário e exiba a tabuada completa
+        dele, de 1 a 10, utilizando a estrutura for. Cada linha deve
+        mostrar a operação e o resultado, no formato 7 x 3 = 21.
+    </p>
+    <script>
+        let numero = Number(prompt('Digite um número: '));
+
+        for (let k = 1; k <= 10; k++) {
+            console.log(`${numero} x ${k} = ${numero * k}\n`);
+        }
+    </script>
+</body>
+
+</html>
