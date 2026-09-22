@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q010</title>
+</head>
+
+<body>
+    <h1>Questão 10</h1>
+    <p>
+        Solicite um número N ao usuário. Utilizando um laço de
+        repetição e uma estrutura condicional, exiba todos os
+        números de 1 até N, indicando ao lado de cada um se ele é
+        par ou ímpar. Ao final, informe quantos números pares e
+        quantos ímpares foram encontrados.
+    </p>
+    <script>
+        let numero = Number(prompt('Insira um número: '));
+        let contPar = 0;
+        let contImpar = 0;
+
+        for (let k = 1; k <= numero; k++) {
+            if (k % 2 === 0) {
+                console.log(`${k} - par\n`);
+                contPar++;
+            }
+            else {
+                console.log(`${k} - ímpar\n`);
+                contImpar++;
+            }
+        }
+
+        console.log(`Pares: ${contPar}.\nÌmpares: ${contImpar}.`);
+    </script>
+</body>
+
+</html>
