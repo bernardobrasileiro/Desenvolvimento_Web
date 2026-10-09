@@ -56,16 +56,14 @@ function listarProdutos(lista){
 
 //Tarefa 3
 function cadastrarProduto(lista, nome, categoria, preco, quantidade){
-    [
-        {
-            nome: nome,
+    const novoProduto = {
+            nome: formatarNome(nome),
             categoria: categoria,
             preco: preco,
             quantidade: quantidade,
             vendidos: 0,
-        },
-    ];
-    lista.push(nome);
+        };
+    lista.push(novoProduto);
     return lista.length
 }
 
@@ -81,21 +79,23 @@ function calcularValorEstoque(lista){
 //Tarefa 5
 function buscarProduto(lista, termo){
     const termoLimpo = termo.trim().toLowerCase();
-
     for(let k = 0; k < lista.length; k++){
-        if(lista[k].nome.toLowerCase() === termoLimpo){
+        if(lista[k].nome.toLowerCase().includes(termoLimpo)){
             return lista[k];
         }
     }
-
     return null;
 }
 
 //Tarefa 6
-function produtosEmFalta(lista, minimo){
-    return lista.filter(function(produto){
-        return produto.quantidade < minimo;
-    });
+function produtosEmFalta(lista, minimo) {
+    const emFalta = [];
+    for (let k = 0; k < lista.length; k++) {
+        if (lista[k].quantidade < minimo) {
+            emFalta.push(lista[k]);
+        }
+    }
+    return emFalta;
 }
 
 //Tarefa 7
@@ -111,13 +111,55 @@ function aplicarDesconto(lista, categoria, percentual){
     return cont;
 }
 
+//Tarefa 8
+function registrarVenda(lista, nome, quantidade){
+    const produto = buscarProduto(lista, nome);
+    if (produto === null || produto.quantidade < quantidade) {
+        return false;
+    }
+    produto.quantidade = produto.quantidade - quantidade;
+    produto.vendidos = produto.vendidos + quantidade
+    return true
+}
+
+//Tarefa 9
+function formatarNome(texto){
+    const limpo = texto.trim();
+    return limpo.charAt(0).toUpperCase() + limpo.slice(1).toLowerCase();
+}
+
+//Tarefa 10
+function converterParaJSON(lista){
+    return JSON.stringify(lista);
+}   
+function lerJSON(texto){
+    return JSON.parse(texto)
+}
+
+//Tarefa 11
+function gerarRelatorio(nome, lista){
+    const novoNome = nome.toUpperCase();
+    const valorEstoque = calcularValorEstoque(lista);
+    const emFalta = produtosEmFalta(lista, 5)
+    console.log(`===== RELATÓRIO: ${novoNome} =====`);
+    console.log(`Produtos cadastrados: ${lista.length}`);
+    console.log(`Valor total em estoque: R$${valorEstoque}`);
+    console.log(`Produtos com estoque baixo: ${emFalta.length}`);
+    for(let k = 0; k < emFalta.length; k++){
+        console.log(`- ${emFalta[k].nome} (${emFalta[k].quantidade} un.)`);
+    }
+}
+
 // ===== 3. PROGRAMA PRINCIPAL =====
 console.log(`--- Tarefa 2: listar ---`);
 listarProdutos(produtos);
+
 console.log(`--- Tarefa 3: cadastrar ---`);
 console.log(`Produto cadastrado! Agora a loja tem ${cadastrarProduto(produtos, "fone", "periferico", 100, 15)} produtos.`);
+
 console.log(`--- Tarefa 4: valor do estoque ---`);
 console.log(`Valor do estoque: R$${calcularValorEstoque(produtos)}.`);
+
 console.log(`--- Tarefa 5: buscar ---`);
 const encontrado = buscarProduto(produtos, " MOUSE");
 if (encontrado !== null) {
@@ -125,17 +167,36 @@ if (encontrado !== null) {
 } else {
     console.log(`Produto não encontrado.`);
 }
+const naoExiste = buscarProduto(produtos, "monitor");
+if (naoExiste === null) {
+    console.log(`Produto não encontrado.`);
+}
+
 console.log(`--- Tarefa 6: em falta ---`);
-const emFalta = produtosEmFalta(produtos, 5);
-const nomesEmFalta = emFalta.map(function (produto) {
-    return produto.nome;
-});
-console.log(`Produtos com menos de 5 unidades: ${nomesEmFalta.join(", ")}.`);
+console.log(`Produtos com menos de 5 unidades: ${produtosEmFalta(produtos, 5).length}`);
+
 console.log(`--- Tarefa 7: desconto ---`);
 const alterados = aplicarDesconto(produtos, "periferico", 10);
 console.log(`${alterados} produtos receberam desconto.`);
 console.log(`Novo preço do mouse: R$ ${buscarProduto(produtos, "mouse").preco}`);
+
 console.log(`--- Tarefa 8: registrar venda ---`);
+if (registrarVenda(produtos, "mouse", 3)) {
+    const mouse = buscarProduto(produtos, "mouse");
+    console.log(`Venda realizada! ${mouse.nome}: ${mouse.quantidade} un. em estoque, ${mouse.vendidos} vendidos.`);
+}
+if (!registrarVenda(produtos, "gpu", 10)) {
+    console.log(`Venda não realizada: estoque insuficiente ou produto inexistente.`);
+}
+
 console.log(`--- Tarefa 9: formatar nome ---`);
+console.log(`${formatarNome("  weBcAM ")}`);
+
 console.log(`--- Tarefa 10: JSON ---`);
+const texto = converterParaJSON(produtos);
+console.log(typeof texto);
+const recuperados = lerJSON(texto);
+console.log(`Itens recuperados: ${recuperados.length} | Primeiro: ${recuperados[0].nome}`);
+
 console.log(`--- Tarefa 11: relatório ---`);
+gerarRelatorio(nomeLoja, produtos);
