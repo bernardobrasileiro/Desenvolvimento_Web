@@ -1,6 +1,4 @@
-const disciplina = {
-    nome: "Web", cargaHoraria: 60, professor: "John",
-}
+const disciplina = { nome: "Web", cargaHoraria: 60, professor: "John" }
 
 disciplina.cargaHoraria = 80;
 disciplina.periodo = 2;
