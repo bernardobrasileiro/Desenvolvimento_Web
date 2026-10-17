@@ -1,5 +1,4 @@
-const recebido =
-    '{"produto": "Monitor", "preco": 900, "estoque": 4}'
+const recebido = '{"produto": "Monitor", "preco": 900, "estoque": 4}'
 
 const objeto = JSON.parse(recebido);
 
