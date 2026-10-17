@@ -2,48 +2,12 @@
 // Tarefa 1
 const nomeLoja = "BernaTech"
 const produtos = [
-    {
-        nome: "Cpu", 
-        categoria: "hardware", 
-        preco: 1500, 
-        quantidade: 4, 
-        vendidos: 1,
-    },
-    {
-        nome: "Gpu", 
-        categoria: "hardware", 
-        preco: 1950, 
-        quantidade: 3, 
-        vendidos: 2 ,
-    },
-    {
-        nome: "Mouse", 
-        categoria: "periferico", 
-        preco: 150, 
-        quantidade: 23, 
-        vendidos: 10,
-    },
-    {
-        nome: "Microfone", 
-        categoria: "periferico", 
-        preco: 175, 
-        quantidade: 12, 
-        vendidos: 5,
-    },
-    {
-        nome: "Webcam", 
-        categoria: "periferico", 
-        preco: 125, 
-        quantidade: 10, 
-        vendidos: 3,
-    },
-    {
-        nome: "Teclado", 
-        categoria: "periferico", 
-        preco: 250, 
-        quantidade: 15, 
-        vendidos: 7,
-    }
+    { nome: "Cpu", categoria: "hardware", preco: 1500, quantidade: 4, vendidos: 1 },
+    { nome: "Gpu", categoria: "hardware", preco: 1950, quantidade: 3, vendidos: 2 },
+    { nome: "Mouse", categoria: "periferico", preco: 150, quantidade: 23, vendidos: 10 },
+    { nome: "Microfone", categoria: "periferico", preco: 175, quantidade: 12, vendidos: 5 },
+    { nome: "Webcam", categoria: "periferico", preco: 125, quantidade: 10, vendidos: 3 },
+    { nome: "Teclado", categoria: "periferico", preco: 250, quantidade: 15, vendidos: 7 }
 ];
 
 // ===== 2. FUNÇÕES =====
@@ -56,13 +20,7 @@ function listarProdutos(lista){
 
 //Tarefa 3
 function cadastrarProduto(lista, nome, categoria, preco, quantidade){
-    const novoProduto = {
-            nome: formatarNome(nome),
-            categoria: categoria,
-            preco: preco,
-            quantidade: quantidade,
-            vendidos: 0,
-        };
+    const novoProduto = { nome: formatarNome(nome), categoria: categoria, preco: preco, quantidade: quantidade, vendidos: 0 };
     lista.push(novoProduto);
     return lista.length
 }
