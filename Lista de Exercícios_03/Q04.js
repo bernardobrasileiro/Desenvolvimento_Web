@@ -1,17 +1,9 @@
 const alunos = [
-    { 
-        nome: "Ana", media: 8.5 
-    },
-    { 
-        nome: "Bruno", media: 6 
-    },
-    { 
-        nome: "Carla", media: 9 
-    },
-    { 
-        nome: "Davi", media: 5.5 
-    }
-]
+    { nome: "Ana", media: 8.5 },
+    { nome: "Bruno", media: 6 },
+    { nome: "Carla", media: 9 },
+    { nome: "Davi", media: 5.5 }
+];
 
 const primeiroMenor7 = alunos.find(c => c.media < 7);
 console.log(primeiroMenor7.nome);
